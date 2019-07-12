@@ -3,7 +3,7 @@
   <div class="row">
 
 		<div class="col-md-12">
-			<img src="../public/assets/images/burger.png" alt="burger" class="img-responsive center-block">
+			<img src="../public/assets/img/burger.png" alt="burger" class="img-fluid">
 		</div>
 
 	</div>
@@ -58,8 +58,9 @@
 
 	<div class="row">
 
+{{!-- Add a Burger --}}
 		<div class="col-md-12 text-center">
-			<form class="create-update-form" action="burgers/insertOne" method="POST">
+			<form class="create-update-form" action="api/burgers" method="POST">
 				<div class="form-group">
 					<textarea type="text" name="name"></textarea><br>
 					<button class="btn btn-default" type="submit">Submit</button>
