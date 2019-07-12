@@ -2,6 +2,8 @@ var express = require("express")
 var exphbs = require("express-handlebars")
 var routes = require("./controllers/burgers_controller");
 
+var methodOverride = require("method-override")
+
 var path = require("path");
 
 
@@ -13,7 +15,7 @@ var PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 // Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
