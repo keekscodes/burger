@@ -1,48 +1,38 @@
-var connection = require("../config/connection.js");
+var connection = require("../config/connection");
 
 function printQuestionMarks(num) {
-    var array = [];
+    var arr = [];
 
     for (var i = 0; i < num; i++) {
-        array.push("?");
+        arr.push("?");
     }
 
-    return array.toString();
+    return arr.toString();
 }
 
-// Helper function to convert object key/value pairs to SQL syntax
-function objToSql(obj) {
-    var array = [];
+function objToSql(ob) {
+    var arr = [];
 
-    // loop through the keys and push the key/value as a string int array
-    for (var key in obj) {
-        var value = obj[key];
-        // check to skip hidden properties
-        if (Object.hasOwnProperty.call(obj, key)) {
-            // if string with spaces, add quotations 
+    for (var key in ob) {
+        var value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            array.push(key + "=" + value);
+            arr.push(key + "=" + value);
         }
     }
-
-    // translate arrayay of strings to a single comma-separated string
-    return array.toString();
+    return arr.toString();
 }
+
 var orm = {
-    // selectAll()
     selectAll: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
-            if (err) {
-                throw err;
-            }
+            if (err) throw err;
             cb(result);
         });
     },
-
-    // insertOne()
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
 
@@ -53,18 +43,13 @@ var orm = {
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
 
-        // console.log(queryString);
-
         connection.query(queryString, vals, function(err, result) {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
-
-    // updateOne()
     updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
 
@@ -73,16 +58,11 @@ var orm = {
         queryString += " WHERE ";
         queryString += condition;
 
-        // console.log(queryString);
         connection.query(queryString, function(err, result) {
-            if (err) {
-                throw err;
-            }
-
+            if (err) throw err;
             cb(result);
         });
     }
 };
 
-// export module
 module.exports = orm;

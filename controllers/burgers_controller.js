@@ -1,11 +1,9 @@
 var express = require("express");
 var router = express.Router();
-var burger = require('../models/burger.js');
+var burger = require("../models/burger.js");
 
-
-// Index redirect
-router.get('/', function(req, res) {
-    res.redirect('/burgers');
+router.get("/", function(req, res) {
+    res.redirect("/burgers");
 });
 
 router.get("/burgers", function(req, res) {
@@ -13,40 +11,84 @@ router.get("/burgers", function(req, res) {
         var hbsObject = {
             burgers: data
         };
-        res.render('index', hbsObject);
+        res.render("index", hbsObject);
     });
 });
 
-//  Create a new burger
-router.post('/api/burgers', function(req, res) {
+router.post("/api/burgers", function(req, res) {
     burger.insertOne([
-            "burger_name", "devoured"
-        ], [
-            req.body.burger_name, false
-        ],
-        function() {
-            // res.json(data);
-            res.redirect('/burgers');
-        });
+        "burger_name", "devoured"
+    ], [
+        req.body.burger_name, false
+    ], function() {
+        res.redirect("/burgers");
+    });
 });
 
-// Devour a burger
-router.post('/api/burgers/:id', function(req, res) {
+router.post("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     burger.updateOne({
         devoured: req.body.devoured
     }, condition, function(data) {
-        res.redirect('/burgers');
-    })
-
-
+        res.redirect("/burgers");
+    });
 });
 
-
-
-// // Export routes
 module.exports = router;
+
+
+
+// LOGIC 2
+// var express = require("express");
+// var router = express.Router();
+// var burger = require('../models/burger.js');
+
+
+// // Index redirect
+// router.get('/', function(req, res) {
+//     res.redirect('/burgers');
+// });
+
+// router.get("/burgers", function(req, res) {
+//     burger.selectAll(function(data) {
+//         var hbsObject = {
+//             burgers: data
+//         };
+//         res.render('index', hbsObject);
+//     });
+// });
+
+// //  Create a new burger
+// router.post('/api/burgers', function(req, res) {
+//     burger.insertOne([
+//             "burger_name", "devoured"
+//         ], [
+//             req.body.burger_name, false
+//         ],
+//         function() {
+//             // res.json(data);
+//             res.redirect('/burgers');
+//         });
+// });
+
+// // Devour a burger
+// router.post('/api/burgers/:id', function(req, res) {
+//     var condition = "id = " + req.params.id;
+
+//     burger.updateOne({
+//         devoured: req.body.devoured
+//     }, condition, function(data) {
+//         res.redirect('/burgers');
+//     })
+
+
+// });
+
+
+
+// // // Export routes
+// module.exports = router;
 
 // ORIGINAL LOGIC
 
