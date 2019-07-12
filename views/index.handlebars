@@ -44,7 +44,7 @@
 				{{#each burgers}}
 					{{#if this.devoured}}
 						<li>
-							<h5 class="text-muted"> {{this.burger_name}}</h5>
+							<p class="text-muted"> {{this.burger_name}}</p>
 						</li>
 					{{/if}}
 				{{/each}}
@@ -61,8 +61,8 @@
 		<div class="col-md-12 text-center">
 			<form class="create-update-form" action="api/burgers" method="POST">
 				<div class="form-group">
-					<textarea type="text" name="name"></textarea><br>
-					<button class="btn btn-primary" type="submit">Submit</button>
+					<textarea type="text" name="burger_name"></textarea><br>
+					<button class="btn btn-primary" id="btnAdd" type="submit">Submit</button>
 					<h5 class="text-center">Enter a burger you want to eat and click Submit!</h5>
 				</div>
 			</form>
