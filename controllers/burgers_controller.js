@@ -5,7 +5,7 @@ var burger = require('../models/burger.js');
 
 // Index redirect
 router.get('/', function(req, res) {
-    res.redirect('/index');
+    res.redirect('/burgers');
 });
 
 router.get("/burgers", function(req, res) {
@@ -14,26 +14,35 @@ router.get("/burgers", function(req, res) {
             burgers: data
         };
         res.render('index', hbsObject);
-    })
-})
+    });
+});
 
 //  Create a new burger
 router.post('/api/burgers', function(req, res) {
-    burger.insertOne(req.body.burger_name, function() {
-        // res.json(data);
-        res.redirect('/index');
-    });
+    burger.insertOne([
+            "burger_name", "devoured"
+        ], [
+            req.body.burger_name, false
+        ],
+        function() {
+            // res.json(data);
+            res.redirect('/burgers');
+        });
 });
 
 // Devour a burger
-router.post('/burger/eat/:id', function(req, res) {
-    burger.updateOne(req.params.id, function() {
-        // res.end();
-        // res.redirect('');
-        res.redirect('/index');
+router.post('/api/burgers/:id', function(req, res) {
+    var condition = "id = " + req.params.id;
 
-    });
+    burger.updateOne({
+        devoured: req.body.devoured
+    }, condition, function(data) {
+        res.redirect('/burgers');
+    })
+
+
 });
+
 
 
 // // Export routes
