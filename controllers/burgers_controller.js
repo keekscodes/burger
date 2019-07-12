@@ -5,34 +5,33 @@ var burger = require('../models/burger.js');
 
 // Index redirect
 router.get('/', function(req, res) {
-    // res.redirect('/index');
+    res.redirect('/index');
+});
+
+router.get("/burgers", function(req, res) {
     burger.selectAll(function(data) {
         var hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
         res.render('index', hbsObject);
-    });
-});
-
-
-// Index page (render all burgers to DOM)
-// router.get('/index', function(req, res) {
-// });
-
+    })
+})
 
 //  Create a new burger
 router.post('/api/burgers', function(req, res) {
-    burger.insertOne(req.body.burger_name, function(data) {
-        res.json(data);
+    burger.insertOne(req.body.burger_name, function() {
+        // res.json(data);
+        res.redirect('/index');
     });
 });
 
 // Devour a burger
-router.put('/burger/eat/:id', function(req, res) {
+router.post('/burger/eat/:id', function(req, res) {
     burger.updateOne(req.params.id, function() {
-        res.end();
+        // res.end();
         // res.redirect('');
+        res.redirect('/index');
+
     });
 });
 
