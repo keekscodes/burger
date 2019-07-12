@@ -24,12 +24,11 @@
 				{{#each burgers}}
 					{{#unless this.devoured}}
 						<li>
-							<h5> {{this.burger_name}}
-								<form action='burgers/updateOne/{{this.id}}' method='PUT'>
-									<input type='hidden' name='devoured' value='true'>
-									<button type='submit' class="btn btn-outline-primary">EAT THIS!</button>
+							<p class="burgerType">{{this.burger_name}}</p>
+								<form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
+									<input type="hidden" name="devoured" value="true">
+									<button type="submit" class="btn btn-outline-primary btnDevour">EAT THIS!</button>
 								</form>
-							</h5>
 						</li>
 					{{/unless}}
 				{{/each}}
