@@ -9,8 +9,8 @@ USE burgers_db;
 
 -- Create the table burgers.
 CREATE TABLE burgers (
-  id int NOT NULL AUTO_INCREMENT,
-  burger_name varchar(50) NOT NULL,
-  devoured boolean,
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  burger_name VARCHAR(50) NOT NULL,
+  devoured BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
