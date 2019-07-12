@@ -1,11 +1,6 @@
 var express = require("express")
 var exphbs = require("express-handlebars")
-var routes = require("./controllers/burgers_controller");
-
 var methodOverride = require("method-override")
-
-var path = require("path");
-
 
 var app = express()
 
@@ -21,7 +16,9 @@ app.use(express.json());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-app.use(routes);
+
+var routes = require("./controllers/burgers_controller");
+app.use("/", routes);
 
 app.listen(PORT, function() {
     console.log("App now listening at localhost:" + PORT);
