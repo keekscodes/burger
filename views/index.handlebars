@@ -27,7 +27,7 @@
 							<h5> {{this.burger_name}}
 								<form action='burgers/updateOne/{{this.id}}' method='PUT'>
 									<input type='hidden' name='devoured' value='true'>
-									<button type='submit' class="btn btn-primary">EAT THIS!</button>
+									<button type='submit' class="btn btn-outline-primary">EAT THIS!</button>
 								</form>
 							</h5>
 						</li>
@@ -72,3 +72,26 @@
 	</div>
 
 </div>
+
+{{!-- <script type="text/javascript">
+$(document).ready(function() {
+$("#submit").on("click", function(event) {
+  console.log("clicked")
+var newBurger = {
+  burger_name: $("#burger_name").val(),
+  devoured: $("#devoured").val()
+    };
+    event.preventDefault();
+    $.ajax("/api/burgers", {
+        type: "POST",
+        data: newBurger
+    }).then(function(result) {
+        console.log(result);
+        $("#burger_name").val("");
+        $("#devoured").val("");
+        location.reload();
+    })
+})
+
+})
+</script> --}}
