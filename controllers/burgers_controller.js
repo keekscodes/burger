@@ -29,9 +29,10 @@ router.post('/api/burgers', function(req, res) {
 });
 
 // Devour a burger
-router.post('/burger/eat/:id', function(req, res) {
+router.put('/burger/eat/:id', function(req, res) {
     burger.updateOne(req.params.id, function() {
-        res.redirect('/');
+        res.end();
+        // res.redirect('');
     });
 });
 
