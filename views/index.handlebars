@@ -2,25 +2,26 @@
 
   <div class="row">
 
-		<div class="col-md-12">
-			{{!-- <img src="/assets/img/burger.png" alt="burger" class="img-fluid"> --}}
-			<img src="/assets/img/neon.png" alt="burger" class="img-fluid">
-		</div>
-
-	</div>
-  <div class="row">
-
-		<div class="col-md-12">
+		<div class="col-md-12 mt-5">
 			<h1 class="text-center text-danger text-uppercase main">Eat-Da-Burger</h1>
 		</div>
 	
 	</div>
 
+  <div class="row">
+
+		<div class="col-md-12">
+			{{!-- <img src="/assets/img/burger.png" alt="burger" class="img-fluid"> --}}
+			<img src="/assets/img/neon.png" alt="burger" class="img-fluid mx-auto d-block">
+		</div>
+
+	</div>
+
 	<div class="row">
 
 {{!-- Uneaten Burgers --}}
-		<div class="col-md-5">
-			<h3>Uneaten Burgers</h3>
+		<div class="col-md-6 text-center">
+			<h3 class="snacks">Uneaten Burgers</h3>
 			<ul>
 				{{#each burgers}}
 					{{#unless this.devoured}}
@@ -37,10 +38,10 @@
 		</div>
 
 {{!-- Eaten Burgers --}}
-		<div class="col-md-2"></div>
+		{{!-- <div class="col-md-2"></div> --}}
 
-		<div class="col-md-5">
-			<h3 class="text-muted">Eaten Burgers</h3>
+		<div class="col-md-6 text-center">
+			<h3 class="text-muted snacks">Eaten Burgers</h3>
 			<ul>
 				{{#each burgers}}
 					{{#if this.devoured}}

@@ -9,3 +9,25 @@
 .main {
     font-family: 'Monoton', cursive;
 }
+
+
+/* .uneaten {
+    font-family: 'Bungee', cursive;
+    /* font-family: 'Bungee Shade', cursive; 
+
+
+} */
+
+.snacks {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+ul {
+    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    text-transform: uppercase;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
