@@ -34,6 +34,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    line-height: 1;
 }
 
 .add-brgr {
@@ -51,6 +52,7 @@ ul {
     width: 500px;
 }
 
-#brgr-inpt {
+#brgr-inpt,
+#btnAdd {
     text-transform: uppercase;
 }
