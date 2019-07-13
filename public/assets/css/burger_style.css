@@ -22,9 +22,7 @@
     font-family: 'Raleway Dots', cursive;
     text-transform: uppercase;
     font-weight: bold;
-    /* color: #ec2400; */
     color: #FF5607;
-    /* color: #FF9800; */
 }
 
 ul {
@@ -55,4 +53,9 @@ ul {
 #brgr-inpt,
 #btnAdd {
     text-transform: uppercase;
+}
+
+#btnAdd {
+    color: #FF5607;
+    border-color: #FF5607;
 }

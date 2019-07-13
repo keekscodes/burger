@@ -41,8 +41,8 @@
 		{{!-- <div class="col-md-2"></div> --}}
 
 		<div class="col-md-6 text-center">
-			<h3 class="text-muted snacks">Eaten Burgers</h3>
-			<ul>
+			<h3 class="snacks">Eaten Burgers</h3>
+			<ul class="text-muted ">
 				{{#each burgers}}
 					{{#if this.devoured}}
 						<li>
@@ -63,7 +63,7 @@
 		<div class="col-md-12 text-center">
 			<form class="create-update-form" action="api/burgers" method="POST">
 					<textarea type="text" class="text-center w-25"name="burger_name" id="brgr-inpt" placeholder="Create Your Own Burger" required></textarea><br>
-					<button class="btn btn-primary ml-4" id="btnAdd" type="submit">Submit</button>
+					<button class="btn" id="btnAdd" type="submit">Submit</button>
 			</form>
 		</div> 
 
