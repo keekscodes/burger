@@ -2,25 +2,29 @@
     width: 100% \9;
 }
 
-* {
+
+/* * {
     color: red;
-}
+} */
 
 .main {
     font-family: 'Monoton', cursive;
+    /* color: #ec0000; */
+    color: #F6412D;
 }
 
-
-/* .uneaten {
-    font-family: 'Bungee', cursive;
-    /* font-family: 'Bungee Shade', cursive; 
-
-
-} */
+.burgerType {
+    color: black;
+}
 
 .snacks {
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Raleway Dots', cursive;
     text-transform: uppercase;
+    font-weight: bold;
+    /* color: #ec2400; */
+    color: #FF5607;
+    /* color: #FF9800; */
 }
 
 ul {
@@ -30,4 +34,23 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.add-brgr {
+    font-family: 'Raleway Dots', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.devour-btn {
+    text-transform: uppercase;
+    border-color: #FFEC19;
+}
+
+.brg-form {
+    width: 500px;
+}
+
+#brgr-inpt {
+    text-transform: uppercase;
 }
