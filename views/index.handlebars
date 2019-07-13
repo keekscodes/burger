@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
 
   <div class="row">
 
 		<div class="col-md-12 mt-5">
-			<h1 class="text-center text-danger text-uppercase main">Eat-Da-Burger</h1>
+			<h1 class="text-center text-uppercase main">Eat-Da-Burger</h1>
 		</div>
 	
 	</div>
@@ -22,14 +22,14 @@
 {{!-- Uneaten Burgers --}}
 		<div class="col-md-6 text-center">
 			<h3 class="snacks">Uneaten Burgers</h3>
-			<ul>
+			<ul class="list-inline">
 				{{#each burgers}}
 					{{#unless this.devoured}}
-						<li>
+						<li class="list-inline item">
 							<p class="burgerType">{{this.burger_name}}</p>
 								<form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
 									<input type="hidden" name="devoured" value="true">
-									<button type="submit" class="btn btn-outline-primary btnDevour">EAT THIS!</button>
+									<button type="submit" class="btn btn-sm devour-btn">Devour It!</button>
 								</form>
 						</li>
 					{{/unless}}
@@ -57,19 +57,37 @@
 
   <br><br>
 
-	<div class="row">
+<div class="row justify-content-center align-items-center">
 
 {{!-- Add a Burger --}}
 		<div class="col-md-12 text-center">
 			<form class="create-update-form" action="api/burgers" method="POST">
-				<div class="form-group">
-					<textarea type="text" name="burger_name"></textarea><br>
-					<button class="btn btn-primary" id="btnAdd" type="submit">Submit</button>
-					<h5 class="text-center">Enter a burger you want to eat and click Submit!</h5>
-				</div>
+					<textarea type="text" class="text-center w-25"name="burger_name" id="brgr-inpt" placeholder="Create Your Own Burger" required></textarea><br>
+					<button class="btn btn-primary ml-4" id="btnAdd" type="submit">Submit</button>
 			</form>
-		</div>
+		</div> 
 
-	</div>
-
+	
+</div> 
 </div>
+
+
+
+
+
+
+{{!-- Add a Burger --}}
+	{{!-- <div class="row">
+		<div class="col-md-12 text-center">
+			<form class="was-validated" action="api/burgers" method="POST">
+  <div class="mb-3">
+    <label for="validationTextarea">Textarea</label>
+    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" Add your burger></textarea>
+    <button class="btn btn-primary mb-4" id="btnAdd" type="submit">Submit</button>
+		<div class="invalid-feedback">
+      Please enter the burger you want to add.
+    </div>
+  </div>
+		</div>
+	</div> --}}
+
